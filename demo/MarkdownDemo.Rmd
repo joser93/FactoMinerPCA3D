@@ -1,0 +1,38 @@
+---
+title: "Demo Markdown"
+author: "José Roberto Sánchez (joser93) - Daniel Villalobos"
+date: "07/11/2015"
+output: html_document
+---
+
+
+```{r, echo=FALSE}
+suppressWarnings(suppressMessages(library(knitr)))
+knit_hooks$set(webgl = hook_webgl)
+if(Sys.getenv("USERNAME") == "joser93" || Sys.getenv("USERNAME") == "jsanchez"){
+        setwd("~/Repositorios/FactoMinerPCA3D/demo/")
+}
+read_chunk("demo_source.r")
+```
+<h1>Biplot Demo</h1>
+
+```{r }
+<<demo_reset>>
+<<demo_libraries>>
+<<demo_webgl_hook>>
+<<demo_data>>
+```
+
+<p>Each 3D plot requires a knitr chunk label</p>
+
+```{r plot1, webgl=TRUE}
+<<demo_BIPlot>>
+```
+
+```{r plot2, webgl=TRUE}
+<<demo_BIPlot>>
+```
+
+```{r plot3, webgl=TRUE}
+<<demo_BIPlot>>
+```
