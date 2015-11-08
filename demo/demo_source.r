@@ -13,7 +13,11 @@ knit_hooks$set(webgl = hook_webgl)
 
 ## @knitr demo_data
 
-df <- read.table('data.csv', header=TRUE, sep=';',dec=',',row.names=1)
+if(Sys.getenv("USERNAME") == "joser93" || Sys.getenv("USERNAME") == "jsanchez"){
+  setwd("~/Repositorios/FactoMinerPCA3D/demo/")
+}
+
+df <- read.csv('data.csv', header=TRUE, sep=',',dec=',',row.names=1)
 df
 
 res<-PCA(df, scale.unit=TRUE, ncp=5, graph = FALSE)
